@@ -1,0 +1,84 @@
+class {
+  onCreate() {
+    this.state = {
+      columns: [
+        {id:'company', title: 'Company'},
+        {id:'contact', title: 'Contact'},
+        {id:'country', title: 'Country'},
+      ],
+      rows: [
+        {id: 1, company: 'Alfreds Futterkiste', contact: 'Maria Anders', country: 'Germany'},
+        {id: 2, company: 'Centro comercial Moctezuma', contact: 'Francisco Chang', country: 'Mexico'},
+        {id: 3, company: 'Ernst Handel', contact: 'Roland Mendel', country: 'Austria'},
+        {id: 4, company: 'Island Trading', contact: 'Helen Bennett', country: 'UK'},
+        {id: 5, company: 'Laughing Bacchus Winecellars', contact: 'Yoshi Tannamuri', country: 'Canada'},
+      ]
+    };
+  }
+
+  onMount() {
+      this.draggingMethod(this);
+    }
+
+    draggingMethod(t){
+      var dragged;
+      document.addEventListener("drag", function( event ) {
+      }, false);
+
+      document.addEventListener("dragstart", function( event ) {
+        dragged = event.target;
+        event.target.style.opacity = 1;
+      }, false);
+
+      document.addEventListener("dragend", function( event ) {
+        event.target.style.opacity = "";
+      }, false);
+
+      document.addEventListener("dragover", function( event ) {
+        event.preventDefault();
+      }, false);
+
+      document.addEventListener("dragenter", function( event ) {
+        if ( event.target.className == "dropzone" ) {
+            event.target.style.background = "cyan";
+        }
+      }, false);
+
+      document.addEventListener("dragleave", function( event ) {
+        if ( event.target.className == "dropzone" ) {
+            event.target.style.background = "";
+        }
+      }, false);
+
+      document.addEventListener("drop", function( event ) {
+        event.preventDefault();
+        let moveTo = event.target.getAttribute("data-col-id");
+        if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "";
+          let draggedTabId = dragged.getAttribute("data-row-id");
+          Array.prototype.move = function (from, to) {
+            this.splice(to, 0, this.splice(from, 1)[0]);
+          };
+          let rows = t.state.rows;
+          rows.move(draggedTabId, moveTo);
+          t.state.rows = rows;
+
+          t.forceUpdate();
+        }
+      }, false);
+    }
+}
+
+<div>
+  <h3.tableTitle>${input.title}</h3>
+  <table>
+    <tr>
+      <th for(column in state.columns)>
+        ${column.title}
+      </th>
+    </tr>
+    <tr#draggable for(row in state.rows | status-var=loop) draggable="true" data-row-id="${loop.getIndex()}" ondragstart="event.dataTransfer.setData('text/plain',null)">
+      <td.dropzone data-col-id="${loop.getIndex()}" for(column in state.columns)>${row[column.id]}</td>
+    </tr>
+  </table>
+</div>

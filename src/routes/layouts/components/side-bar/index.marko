@@ -1,0 +1,508 @@
+class {
+  onCreate() {
+    this.state = {
+      showSidebar: false,
+      autoHide: true,
+      showMac: false,
+      autoHideMac: true,
+      showWB: false,
+      autoHideWB: true,
+      showSR: false,
+      autoHideSR: true,
+      showAccountDetails: false,
+      autoHideAccountDetails: true
+    };
+  }
+
+  toggleSidebar() {
+    this.state.showSidebar = !this.state.showSidebar;
+  }
+
+  toggleAutoHide() {
+      this.state.autoHide = !this.state.autoHide;
+  }
+
+  toggleMac() {
+    this.state.showMac = !this.state.showMac;
+  }
+
+  toggleAutoHideMac() {
+    this.state.autoHideMac = !this.state.autoHideMac;
+  }
+
+  toggleWB() {
+    this.state.showWB = !this.state.showWB;
+  }
+
+  toggleAutoHideWB() {
+    this.state.autoHideWB = !this.state.autoHideWB;
+  }
+
+  toggleSR() {
+    this.state.showSR = !this.state.showSR;
+  }
+
+  toggleAutoHideSR() {
+    this.state.autoHideSR = !this.state.autoHideSR;
+  }
+
+  toggleAccountDetails() {
+    this.state.showAccountDetails = !this.state.showAccountDetails;
+  }
+
+  toggleAutoHideAccountDetails() {
+    this.state.autoHideAccountDetails = !this.state.autoHideAccountDetails;
+  }
+}
+
+<div>
+  <ul.sticky-nav>
+    <li>
+      <button on-click('toggleSidebar')>
+        <img src="./summary.png" />
+        Summary
+      </button>
+    </li>
+    <li>
+      <button on-click('toggleAccountDetails')>
+        <img src="./account.png" />
+        Account Detail
+      </button>
+    </li>
+    <li>
+      <button on-click('toggleMac')>
+         <img src="./mac.png" />
+         MAC
+       </button>
+    </li>
+    <li>
+      <button on-click('toggleWB')>
+        <img src="./browser.png" />
+        Web Browser
+      </button>
+    </li>
+    <li>
+      <button on-click('toggleSR')>
+        <img src="./recent.png" />
+        Recent SR
+      </button>
+    </li>
+  </ul>
+
+  <div.acc if(state.showAccountDetails) class=(!state.autoHideAccountDetails ? 'dock' : 'acc')>
+    <div.section-header>
+      <div.section-title>
+        Account Details
+        <span.right-align>
+        <div.pin-btn class=(!state.autoHideAccountDetails ? '' : 'rotate-icon') on-click('toggleAutoHideAccountDetails')></div>
+        <div.close-btn on-click('toggleAccountDetails')></div>
+        </span>
+      </div>
+    </div>
+    <div.table-container>
+      <table>
+        <tr>
+          <td>Full Name</td>
+          <td><b>Jane Doe</b></td>
+        </tr>
+        <tr>
+          <td>User Id</td>
+          <td><b>test 2280</b></td>
+        </tr>
+        <tr>
+          <td>Oracle Id</td>
+          <td><b>390699561</b></td>
+        </tr>
+        <tr>
+          <td>Email Address</td>
+          <td><b>snoetucker@yahoo.com</b></td>
+        </tr>
+        <tr>
+          <td>Company Name</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3rd Party Name</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Retailer Name</td>
+          <td><b>1904, Richards St, Riverton, UT 84094</b></td>
+        </tr>
+        <tr>
+          <td>Contact Information</td>
+          <td><b>US - 801 231 2776(primary)</b></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><b>10/7/1980</b></td>
+        </tr>
+        <tr>
+          <td>Registration IP</td>
+          <td><b>10.247.5.66</b></td>
+        </tr>
+        <tr>
+          <td>Registration Date</td>
+          <td><b>8.10.2006</b></td>
+        </tr>
+        <tr>
+          <td>Registration Site</td>
+          <td><b>0</b></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>Full Name</td>
+          <td><b>Jane Doe</b></td>
+        </tr>
+        <tr>
+          <td>User Id</td>
+          <td><b>test 2280</b></td>
+        </tr>
+        <tr>
+          <td>Oracle Id</td>
+          <td><b>390699561</b></td>
+        </tr>
+        <tr>
+          <td>Email Address</td>
+          <td><b>snoetucker@yahoo.com</b></td>
+        </tr>
+        <tr>
+          <td>Company Name</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3rd Party Name</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Retailer Name</td>
+          <td><b>1904, Richards St, Riverton, UT 84094</b></td>
+        </tr>
+        <tr>
+          <td>Contact Information</td>
+          <td><b>US - 801 231 2776(primary)</b></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><b>10/7/1980</b></td>
+        </tr>
+        <tr>
+          <td>Registration IP</td>
+          <td><b>10.247.5.66</b></td>
+        </tr>
+        <tr>
+          <td>Registration Date</td>
+          <td><b>8.10.2006</b></td>
+        </tr>
+        <tr>
+          <td>Registration Site</td>
+          <td><b>0</b></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>Full Name</td>
+          <td><b>Jane Doe</b></td>
+        </tr>
+        <tr>
+          <td>User Id</td>
+          <td><b>test 2280</b></td>
+        </tr>
+        <tr>
+          <td>Oracle Id</td>
+          <td><b>390699561</b></td>
+        </tr>
+        <tr>
+          <td>Email Address</td>
+          <td><b>snoetucker@yahoo.com</b></td>
+        </tr>
+        <tr>
+          <td>Company Name</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3rd Party Name</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Retailer Name</td>
+          <td><b>1904, Richards St, Riverton, UT 84094</b></td>
+        </tr>
+        <tr>
+          <td>Contact Information</td>
+          <td><b>US - 801 231 2776(primary)</b></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><b>10/7/1980</b></td>
+        </tr>
+        <tr>
+          <td>Registration IP</td>
+          <td><b>10.247.5.66</b></td>
+        </tr>
+        <tr>
+          <td>Registration Date</td>
+          <td><b>8.10.2006</b></td>
+        </tr>
+        <tr>
+          <td>Registration Site</td>
+          <td><b>0</b></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div.sidebar if(state.showSidebar) class=(!state.autoHide ? 'dock' : 'sidebar')>
+   <div.section-header>
+     <div.section-title>
+       Summary
+       <span.right-align>
+       <div.pin-btn class=(!state.autoHide ? '' : 'rotate-icon') on-click('toggleAutoHide')></div>
+       <div.close-btn on-click('toggleSidebar')></div>
+       </span>
+     </div>
+   </div>
+    <ul.summary-list>
+      <li>
+        <div><input type="checkbox" />&nbsp;Seller Limits</div>
+      </li>
+      <li>
+        <div><input type="checkbox" />&nbsp;Transactions</div>
+        <ul>
+          <li>
+            <div><input type="checkbox" />&nbsp;Selling(12)</div>
+            <div><input type="checkbox" />&nbsp;Listing(5)</div>
+            <div><input type="checkbox" />&nbsp;Bidding(0)</div>
+          </li>
+        </ul>
+      </li>
+      <li>
+          <div><input type="checkbox" />&nbsp;Contact Changes</div>
+          <ul>
+            <li>
+              <div><input type="checkbox" />&nbsp;Contact Info(12)</div>
+              <div><input type="checkbox" />&nbsp;Email(5)</div>
+              <div><input type="checkbox" />&nbsp;Addresses(0)</div>
+              <ul>
+                <li>
+                  <div><input type="checkbox" />&nbsp;Shipping</div>
+                  <div><input type="checkbox" />&nbsp;Seller</div>
+                  <div><input type="checkbox" />&nbsp;Ship From</div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+    </ul>
+  </div>
+
+  <div.mac if(state.showMac) class=(!state.autoHideMac ? 'dock' : 'mac')>
+    <div.section-header>
+      <div.section-title>
+        MAC
+        <span.right-align>
+        <div.pin-btn class=(!state.autoHideMac ? '' : 'rotate-icon') on-click('toggleAutoHideMac')></div>
+        <div.close-btn on-click('toggleMac')></div>
+        </span>
+      </div>
+    </div>
+
+     <div.content-row>
+      <select>
+        <option selected>User Id</option>
+        <option>1001</option>
+        <option>1002</option>
+        <option>1003</option>
+      </select>
+      &nbsp;&nbsp;
+      <input type="text" value="test2280" />&nbsp;&nbsp;
+      <input type="text" placeholder="Keyword" />&nbsp;&nbsp;
+      <button type="button">Search</button>&nbsp;&nbsp;
+      <button type="reset">Reset</button>&nbsp;&nbsp;
+     </div>
+
+     <div.content-row>
+      <span><b>User Id/Email:</b> test2280 / snotucker@yahoo.com</span>
+      <span><b>PS Level:</b> 0</span>
+      <span><b>SS Level:</b> 0</span>
+      <span><b>VBS Membership / Daily Segment:</b> NA/E</span>
+     </div>
+
+     <div.filter-panel>
+      <div.panel-header>
+        Filter Status: Not Applied
+        <span.right-align>
+          <a href="#">Apply</a>&nbsp;&nbsp;
+          <a href="#">Remove</a>&nbsp;&nbsp;
+          <a href="#">Check All</a>&nbsp;&nbsp;
+          <a href="#">Clear</a>
+        </span>
+      </div>
+      <div.panel-sub-header>
+        <span><b>Resolution (Action)</b></span>
+        <span><b>Rule (Policy)</b></span>
+      </div>
+      <div.panel-body>
+        <ul>
+          <li>
+            <div>
+              <span><input type="checkbox" />Document (14)</span>
+              <span><input type="checkbox" />Open (1)</span>
+              <span>&nbsp;&nbsp;<input type="checkbox" />Open Issue (1)</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Attribute</b>
+              <span><input type="checkbox" />Issue Scenario (1)</span>
+              <span>&nbsp;&nbsp;<input type="checkbox" />160 - Seller Vetted (1)</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span><input type="checkbox" />Fraud (3)</span>
+              <span><input type="checkbox" />Buyer Risk Vetting (1)</span>
+              <span>&nbsp;&nbsp;<input type="checkbox" />High Risk (2)</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <b>Attribute</b>
+              <span><input type="checkbox" />Violation Type (2)</span>
+              <span>&nbsp;&nbsp;<input type="checkbox" />Selling Violation (2)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+     </div>
+
+      <table border="1" cellSpacing="5" cellPadding="5">
+        <tr>
+          <th>
+            P
+          </th>
+          <th>
+            Subject
+          </th>
+          <th>
+            Process
+          </th>
+          <th>
+            Channel
+          </th>
+          <th>
+            Date Created
+          </th>
+        </tr>
+        <tr>
+          <td>P5</td>
+          <td>Open Issue(160-seller Vetted) > Merchant Performance Risk (Selling Violation)</td>
+          <td>Fraud selling or listing</td>
+          <td>Internal</td>
+          <td>04 Oct 2018 11:44</td>
+        </tr>
+        <tr>
+          <td>P5</td>
+          <td>Document > Merchant Performance Risk (Selling Violation)</td>
+          <td>Fraud selling or listing</td>
+          <td>Internal</td>
+          <td>04 Oct 2018 11:43</td>
+        </tr>
+        <tr>
+          <td>P5</td>
+          <td>Document > Buyer Risk Vetting</td>
+          <td>Fraud selling or listing</td>
+          <td>Internal</td>
+          <td>29 Sep 2018 11:43</td>
+        </tr>
+      </table>
+    </div>
+
+    <div.wb if(state.showWB) class=(!state.autoHideWB ? 'dock' : 'wb')>
+      <div.section-header>
+        <div.section-title>
+          Web Browser
+          <span.right-align>
+          <div.pin-btn class=(!state.toggleAutoHideWB ? '' : 'rotate-icon') on-click('toggleAutoHideWB')></div>
+          <div.close-btn on-click('toggleWB')></div>
+          </span>
+        </div>
+      </div>
+      <iframe src="https://www.ebay.com" height="100%" width="100%"></iframe>
+    </div>
+
+    <div.sr if(state.showSR) class=(!state.autoHideSR ? 'dock' : 'sr')>
+      <div.section-header>
+        <div.section-title>
+          Recent SRs
+          <span.right-align>
+          <div.pin-btn class=(!state.toggleAutoHideSR ? '' : 'rotate-icon') on-click('toggleAutoHideSR')></div>
+          <div.close-btn on-click('toggleSR')></div>
+          </span>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <td.box>
+            <div>Recent Activity</div>
+            <input type="text" value="15 Sep 2018 - 15 Oct 2018" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" /> Has Attachment
+          </td>
+        </tr>
+        <tr>
+          <td.box>
+            <div>Channel</div>
+            <select>
+              <option />
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td.box>
+            <div>Status</div>
+            <select>
+              <option />
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td.box>
+            <div>User</div>
+            <input type="text" value="test2280" />
+          </td>
+        </tr>
+        <tr>
+          <td.box>
+            <div>Owner</div>
+            <select>
+              <option />
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td.box>
+            <div>SR #</div>
+            <input type="text" placeholder="Type Number" />
+          </td>
+        </tr>
+        <tr>
+          <td.box>
+            <div>eMBG #</div>
+            <input type="text" placeholder="Type" />
+          </td>
+        </tr>
+        <tr>
+          <td.box>
+            <div>Return #</div>
+            <input type="text" placeholder="Type" />
+          </td>
+        </tr>
+      </table>
+    </div>
+</div>
